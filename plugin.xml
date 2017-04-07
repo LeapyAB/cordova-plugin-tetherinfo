@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="se.easyserv.tetherinfo"
-        version="0.7.0">
+        id="cordova-plugin-tetherifo"
+        version="0.1.0">
 
   <name>cordova-plugin-tetherinfo</name>
 
@@ -12,7 +12,7 @@
   <asset src="www/tetherinfo.js" target="js/tetherinfo.js"/>
 
   <js-module src="www/tetherinfo.js" name="tetherinfo">
-    <clobbers target="tetherinfo" />
+    <clobbers target="cordova.plugins.tetherinfo" />
   </js-module>
 
   <platform name="android">
