@@ -1,8 +1,8 @@
 /*
- * Cordova ZeroConf Plugin
+ * Cordova TetherInfo Plugin
  *
- * ZeroConf plugin for Cordova/Phonegap
- * by Sylvain Brejeon
+ * TetherInfo plugin for Cordova/Phonegap
+ * by Jonas Olmstead
  */
 
 package se.easyserv.plugin;
