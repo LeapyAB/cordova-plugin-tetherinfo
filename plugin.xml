@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.example.hello"
+        version="0.7.0">
+
+  <name>cordova-plugin-tetherinfo</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/tetherinfo.js" target="js/tetherinfo.js"/>
+
+  <js-module src="www/tetherinfo.js" name="tetherinfo">
+    <clobbers target="tetherinfo" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    </config-file>
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="TetherInfo">
+        <param name="android-package" value="se.easyserv.plugin.TetherInfo"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/TetherInfo.java" target-dir="src/se/easyserv/plugin/"/>
+  </platform>
+
+</plugin>
