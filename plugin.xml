@@ -3,10 +3,14 @@
         id="cordova-plugin-tetherifo"
         version="0.1.0">
 
-  <name>cordova-plugin-tetherinfo</name>
+  <name>TetherInfo</name>
+  <description>TetherInfo plugin for Cordova/Phonegap</description>
+  <author>Jonas Olmstead</author>
+  <keywords>cordova,plugin,network,tether,usb</keywords>
+  <license>MIT</license>
 
   <engines>
-    <engine name="cordova" version=">=3.4.0"/>
+    <engine name="cordova" version=">=3.0.0"/>
   </engines>
 
   <asset src="www/tetherinfo.js" target="js/tetherinfo.js"/>

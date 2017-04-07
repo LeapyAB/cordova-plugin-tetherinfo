@@ -5,7 +5,7 @@
  * by Sylvain Brejeon
  */
 
-package se.easyserv.cordova;
+package se.easyserv.plugin;
 
 import android.net.wifi.WifiManager;
 import android.util.Log;
