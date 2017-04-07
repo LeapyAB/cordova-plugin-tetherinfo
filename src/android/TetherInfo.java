@@ -152,4 +152,23 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
         return ips;
     }
 
+
+    @Override
+    public void serviceResolved(ServiceEvent ev) {
+        Log.d("TetherInfo", "Resolved");
+
+    }
+
+    @Override
+    public void serviceRemoved(ServiceEvent ev) {
+        Log.d("TetherInfo", "Removed");
+
+    }
+
+    @Override
+    public void serviceAdded(ServiceEvent event) {
+        Log.d("TetherInfo", "Added");
+
+    }
+
 }
