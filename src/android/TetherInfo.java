@@ -152,46 +152,4 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
         return ips;
     }
 
-
-    @Override
-    public void serviceResolved(ServiceEvent ev) {
-        Log.d("TetherInfo", "Resolved");
-
-        sendCallback("added", ev.getInfo());
-    }
-
-    @Override
-    public void serviceRemoved(ServiceEvent ev) {
-        Log.d("TetherInfo", "Removed");
-
-        sendCallback("removed", ev.getInfo());
-    }
-
-    @Override
-    public void serviceAdded(ServiceEvent event) {
-        Log.d("TetherInfo", "Added");
-
-    }
-
-    public void sendCallback(String action, ServiceInfo info) {
-        if (callbacks == null || callbacks.get(info.getType()) == null) {
-            return;
-        }
-
-        JSONObject status = new JSONObject();
-        try {
-            status.put("action", action);
-            status.put("service", jsonifyService(info));
-            Log.d("TetherInfo", "Sending result: " + status.toString());
-
-            PluginResult result = new PluginResult(PluginResult.Status.OK, status);
-            result.setKeepCallback(true);
-            callbacks.get(info.getType()).sendPluginResult(result);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-    }
-
 }
