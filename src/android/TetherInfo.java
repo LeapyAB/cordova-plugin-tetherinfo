@@ -64,34 +64,6 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
     }*/
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (publisher != null) {
-            try {
-                publisher.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                publisher = null;
-            }
-        }
-        if (browser != null) {
-            try {
-                browser.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                browser = null;
-                callbacks = null;
-            }
-        }
-        if (lock != null) {
-            lock.release();
-            lock = null;
-        }
-    }
-
-    @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 
         if (ACTION_LISTIP.equals(action)) {
