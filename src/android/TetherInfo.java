@@ -105,7 +105,8 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
         //return intent.getExtras().getBoolean("connected");
 
         JSONObject json = new JSONObject();
-        Set<String> keys = intent.getExtras().keySet();
+        Bundle bundle = intent.getExtras();
+        Set<String> keys = bundle.keySet();
         for (String key : keys) {
             try {
                 // json.put(key, bundle.get(key)); see edit below
