@@ -83,7 +83,9 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
             Log.d("TetherInfo", "CheckUSB ");
 
             Context context = this.cordova.getActivity().getApplicationContext();
-            callbackContext.success(isUsbConnected(context));
+            boolean bConnected = isUsbConnected(context);
+
+            callbackContext.success("" + bConnected);
 
         } else {
             Log.e("TetherInfo", "Invalid action: " + action);
