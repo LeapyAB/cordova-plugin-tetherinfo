@@ -10,6 +10,7 @@ package se.easyserv.plugin;
 import android.net.wifi.WifiManager;
 import android.content.IntentFilter;
 import android.content.Intent;
+import android.content.Context;
 import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
