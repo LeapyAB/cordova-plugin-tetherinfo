@@ -35,20 +35,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.jmdns.JmDNS;
-import javax.jmdns.ServiceEvent;
-import javax.jmdns.ServiceInfo;
-import javax.jmdns.ServiceListener;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 
-public class TetherInfo extends CordovaPlugin implements ServiceListener {
+public class TetherInfo extends CordovaPlugin {
 
-    WifiManager.MulticastLock lock;
-    private JmDNS publisher = null;
-    private JmDNS browser = null;
     private String hostname = UUID.randomUUID().toString();
     private Map<String, CallbackContext> callbacks = new HashMap<String, CallbackContext>();
 
@@ -129,25 +121,6 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
             }
         }
         return ips;
-    }
-
-
-    @Override
-    public void serviceResolved(ServiceEvent ev) {
-        Log.d("TetherInfo", "Resolved");
-
-    }
-
-    @Override
-    public void serviceRemoved(ServiceEvent ev) {
-        Log.d("TetherInfo", "Removed");
-
-    }
-
-    @Override
-    public void serviceAdded(ServiceEvent event) {
-        Log.d("TetherInfo", "Added");
-
     }
 
 }
