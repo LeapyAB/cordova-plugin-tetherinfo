@@ -8,6 +8,7 @@
 package se.easyserv.plugin;
 
 import android.net.wifi.WifiManager;
+import android.content.IntentFilter;
 import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
@@ -50,6 +51,7 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
     private Map<String, CallbackContext> callbacks = new HashMap<String, CallbackContext>();
 
     public static final String ACTION_LISTIP = "listip";
+    public static final String ACTION_CHECKUSB = "checkusb";
 
     /*@Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
@@ -74,6 +76,13 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
 
             callbackContext.success(ips);
 
+        } else if (ACTION_CHECKUSB.equals(action)) {
+
+            Log.d("TetherInfo", "CheckUSB ");
+
+            Context context = this.cordova.getActivity().getApplicationContext();
+            callbackContext.success(isUsbConnected(context));
+
         } else {
             Log.e("TetherInfo", "Invalid action: " + action);
             callbackContext.error("Invalid action: " + action);
@@ -83,6 +92,10 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
         return true;
     }
 
+    public static boolean isUsbConnected(Context context) {
+        intent = context.registerReceiver(null, new IntentFilter("android.hardware.usb.action.USB_STATE"));
+        return intent.getExtras().getBoolean("connected");
+    }
 
     public static String getUSBThetheredIP() {
 
@@ -103,8 +116,8 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
                             //Log.d("DEBUG", "Wrong:" + mac + ":" + ip);
                         } else {
                             //Log.d("DEBUG", "Correct:" + mac + ":" + ip);
-                            ips = ip;
-                            break;
+                            ips = ips.length() == 0 ? ip : ips + "," + ip;
+                            //break;
                         }
                     }
                 }

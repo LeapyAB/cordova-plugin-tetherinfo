@@ -9,6 +9,9 @@ var fail = function(o) {
 };
 
 module.exports = {
+  checkusb : function(success) {
+      return exec(success, fail, "TetherInfo", "checkusb", [ ]);
+  },
   listip : function(success) {
       return exec(success, fail, "TetherInfo", "listip", [ ]);
   }
