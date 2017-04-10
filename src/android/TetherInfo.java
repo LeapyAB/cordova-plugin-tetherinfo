@@ -9,6 +9,7 @@ package se.easyserv.plugin;
 
 import android.net.wifi.WifiManager;
 import android.content.IntentFilter;
+import android.content.Intent;
 import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
@@ -93,7 +94,7 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
     }
 
     public static boolean isUsbConnected(Context context) {
-        intent = context.registerReceiver(null, new IntentFilter("android.hardware.usb.action.USB_STATE"));
+        Intent intent = context.registerReceiver(null, new IntentFilter("android.hardware.usb.action.USB_STATE"));
         return intent.getExtras().getBoolean("connected");
     }
 
