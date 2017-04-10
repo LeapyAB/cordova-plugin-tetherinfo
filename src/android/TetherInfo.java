@@ -11,10 +11,6 @@ import android.net.wifi.WifiManager;
 import android.content.IntentFilter;
 import android.content.Intent;
 import android.content.Context;
-import org.json.JSONException;
-import org.json.JSONObject;
-import android.os.Bundle;
-import java.util.Set;
 import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
@@ -88,7 +84,7 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
         return true;
     }
 
-    public static JSONObject isUsbTethered(Context context) {
+    public static boolean isUsbTethered(Context context) {
 
         Intent intent = context.registerReceiver(null, new IntentFilter("android.hardware.usb.action.USB_STATE"));
         return intent.getExtras().getBoolean("rndis");
