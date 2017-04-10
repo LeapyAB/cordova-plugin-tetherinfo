@@ -13,6 +13,8 @@ import android.content.Intent;
 import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.os.Bundle;
+import java.util.Set;
 import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
