@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="cordova-plugin-tetherifo"
+        id="cordova-plugin-tetherinfo"
         version="0.1.0">
 
   <name>TetherInfo</name>
@@ -27,7 +27,7 @@
       <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
       <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     </config-file>
-    
+
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="TetherInfo">
         <param name="android-package" value="se.easyserv.plugin.TetherInfo"/>
