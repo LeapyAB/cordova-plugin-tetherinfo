@@ -11,6 +11,8 @@ import android.net.wifi.WifiManager;
 import android.content.IntentFilter;
 import android.content.Intent;
 import android.content.Context;
+import org.json.JSONException;
+import org.json.JSONObject;
 import android.util.Log;
 
 import org.apache.cordova.CallbackContext;
@@ -83,9 +85,10 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
             Log.d("TetherInfo", "CheckUSB ");
 
             Context context = this.cordova.getActivity().getApplicationContext();
-            boolean bConnected = isUsbConnected(context);
+            //boolean bConnected = isUsbConnected(context);
+            //boolean bConnected = isUsbConnected(context);
 
-            callbackContext.success("" + bConnected);
+            callbackContext.success(isUsbConnected(context));
 
         } else {
             Log.e("TetherInfo", "Invalid action: " + action);
@@ -96,9 +99,23 @@ public class TetherInfo extends CordovaPlugin implements ServiceListener {
         return true;
     }
 
-    public static boolean isUsbConnected(Context context) {
+    public static JSONObject isUsbConnected(Context context) {
+
         Intent intent = context.registerReceiver(null, new IntentFilter("android.hardware.usb.action.USB_STATE"));
-        return intent.getExtras().getBoolean("connected");
+        //return intent.getExtras().getBoolean("connected");
+
+        JSONObject json = new JSONObject();
+        Set<String> keys = intent.getExtras().keySet();
+        for (String key : keys) {
+            try {
+                // json.put(key, bundle.get(key)); see edit below
+                json.put(key, JSONObject.wrap(bundle.get(key)));
+            } catch(JSONException e) {
+                //Handle exception here
+            }
+        }
+
+        return json;
     }
 
     public static String getUSBThetheredIP() {
