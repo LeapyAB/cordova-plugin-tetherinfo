@@ -14,5 +14,8 @@ module.exports = {
   },
   listip : function(success) {
       return exec(success, fail, "TetherInfo", "listip", [ ]);
+  },
+  testjs : function(success) {
+    success('testjs success');
   }
 };
