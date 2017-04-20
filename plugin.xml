@@ -19,6 +19,8 @@
     <clobbers target="cordova.plugins.tetherinfo" />
   </js-module>
 
+  <dependency id="cordova-plugin-add-swift-support" version="1.6.1"/>
+  
   <platform name="android">
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
