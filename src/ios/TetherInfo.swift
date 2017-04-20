@@ -15,7 +15,7 @@
       )
     }
 
-    commandDelegate.sendPluginResult(
+    self.commandDelegate.sendPluginResult(
       pluginResult,
       callbackId: command.callbackId
     )
@@ -33,7 +33,7 @@
       messageAs: msg
     )
 
-    commandDelegate.sendPluginResult(
+    self.commandDelegate.sendPluginResult(
       pluginResult,
       callbackId: command.callbackId
     )
