@@ -37,4 +37,13 @@
     <source-file src="src/android/TetherInfo.java" target-dir="src/se/easyserv/plugin/"/>
   </platform>
 
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="TetherInfo">
+        <param name="ios-package" value="TetherInfo" />
+      </feature>
+    </config-file>
+    <source-file src="src/ios/TetherInfo.swift" />
+  </platform>
+
 </plugin>
