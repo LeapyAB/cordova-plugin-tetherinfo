@@ -44,7 +44,7 @@
       status: CDVCommandStatus_ERROR
     )
 
-    let msg = false
+    let msg = "false"
 
     pluginResult = CDVPluginResult(
       status: CDVCommandStatus_OK,
