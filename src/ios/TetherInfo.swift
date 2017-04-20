@@ -1,7 +1,8 @@
 @objc(TetherInfo) class TetherInfo : CDVPlugin {
 
 
-  @objc(listip) func listip(command: CDVInvokedUrlCommand) {
+  @objc(listip:)
+  func listip(command: CDVInvokedUrlCommand) {
     var pluginResult = CDVPluginResult(
       status: CDVCommandStatus_ERROR
     )
@@ -21,7 +22,8 @@
     )
   }
 
-  @objc(checkusb) func checkusb(command: CDVInvokedUrlCommand) {
+  @objc(checkusb:)
+  func checkusb(command: CDVInvokedUrlCommand) {
     var pluginResult = CDVPluginResult(
       status: CDVCommandStatus_ERROR
     )
