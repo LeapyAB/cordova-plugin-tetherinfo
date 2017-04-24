@@ -44,7 +44,7 @@ import SystemConfiguration
     if (info != nil) {
       pluginResult = CDVPluginResult(
         status: CDVCommandStatus_OK,
-        messageAs: val!["Hosts.Type.USB-Ethernet"] as! Uint
+        messageAs: info!["Hosts.Type.USB-Ethernet"] as! Uint
       )
     }
 
