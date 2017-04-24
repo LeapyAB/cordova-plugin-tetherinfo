@@ -37,11 +37,11 @@ import SystemConfiguration
 
     let sc = SCDynamicStoreCreate(nil, "com.apple.wirelessmodemsettings.MISManager" as CFString, nil, nil)
     let info = SCDynamicStoreCopyValue(sc, "com.apple.MobileInternetSharing" as CFString)
-    CFRelease(sc)
+    //CFRelease(sc)
 
     //let msg = info
 
-    if (val != nil) {
+    if (info != nil) {
       pluginResult = CDVPluginResult(
         status: CDVCommandStatus_OK,
         messageAs: val!["Hosts.Type.USB-Ethernet"] as! Uint
