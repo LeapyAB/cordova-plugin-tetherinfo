@@ -35,7 +35,7 @@ import SystemConfiguration
     //NSDictionary* info = (__bridge_transfer NSDictionary*)SCDynamicStoreCopyValue(sc, CFSTR("com.apple.MobileInternetSharing"));
     //CFRelease(sc);
 
-    let sc = SCDynamicStoreCreate(NULL, "com.apple.wirelessmodemsettings.MISManager", NULL, NULL)
+    let sc = SCDynamicStoreCreate(nil, "com.apple.wirelessmodemsettings.MISManager", nil, nil)
     let info = SCDynamicStoreCopyValue(sc, "com.apple.MobileInternetSharing")
     CFRelease(sc)
 
