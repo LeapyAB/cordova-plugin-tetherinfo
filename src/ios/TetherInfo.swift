@@ -39,12 +39,14 @@ import SystemConfiguration
     let info = SCDynamicStoreCopyValue(sc, "com.apple.MobileInternetSharing" as CFString)
     CFRelease(sc)
 
-    let msg = info
+    //let msg = info
 
-    pluginResult = CDVPluginResult(
-      status: CDVCommandStatus_OK,
-      messageAs: msg
-    )
+    if (val != nil) {
+      pluginResult = CDVPluginResult(
+        status: CDVCommandStatus_OK,
+        messageAs: val!["Hosts.Type.USB-Ethernet"] as! Uint
+      )
+    }
 
     self.commandDelegate.send(
       pluginResult,
