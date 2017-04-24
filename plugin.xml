@@ -20,8 +20,7 @@
   </js-module>
 
   <dependency id="cordova-plugin-add-swift-support" version="1.6.1"/>
-  <preference name="UseLegacySwiftLanguageVersion" value="true" />
-  
+
   <platform name="android">
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
@@ -47,6 +46,7 @@
       </feature>
     </config-file>
     <source-file src="src/ios/TetherInfo.swift" />
+    <preference name="UseLegacySwiftLanguageVersion" value="true" />
   </platform>
 
 </plugin>
