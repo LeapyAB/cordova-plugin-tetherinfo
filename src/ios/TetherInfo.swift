@@ -1,3 +1,6 @@
+import SystemConfiguration
+
+
 @objc(TetherInfo) class TetherInfo : CDVPlugin {
 
 
@@ -28,7 +31,15 @@
       status: CDVCommandStatus_ERROR
     )
 
-    let msg = "false"
+    //SCDynamicStoreRef sc = SCDynamicStoreCreate(NULL, CFSTR("com.apple.wirelessmodemsettings.MISManager"), NULL, NULL);
+    //NSDictionary* info = (__bridge_transfer NSDictionary*)SCDynamicStoreCopyValue(sc, CFSTR("com.apple.MobileInternetSharing"));
+    //CFRelease(sc);
+
+    let sc = SCDynamicStoreCreate(NULL, "com.apple.wirelessmodemsettings.MISManager", NULL, NULL)
+    let info = SCDynamicStoreCopyValue(sc, "com.apple.MobileInternetSharing")
+    CFRelease(sc)
+
+    let msg = info
 
     pluginResult = CDVPluginResult(
       status: CDVCommandStatus_OK,
