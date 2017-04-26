@@ -19,9 +19,7 @@
     <clobbers target="cordova.plugins.tetherinfo" />
   </js-module>
 
-  <dependency id="cordova-plugin-add-swift-support" version="1.6.1">
-    <preference name="UseLegacySwiftLanguageVersion" value="true" />
-  </dependency>
+  <dependency id="cordova-plugin-add-swift-support" version="1.6.1"/>
 
   <platform name="android">
 
@@ -42,6 +40,7 @@
   </platform>
 
   <platform name="ios">
+    <preference name="UseLegacySwiftLanguageVersion" value="true" />
     <config-file target="config.xml" parent="/*">
       <feature name="TetherInfo">
         <param name="ios-package" value="TetherInfo" />
