@@ -40,9 +40,6 @@
   </platform>
 
   <platform name="ios">
-    <preference name="swift-version" value="2.3" />
-    <preference name="UseLegacySwiftLanguageVersion" value="true" />
-
     <config-file target="config.xml" parent="/*">
       <feature name="TetherInfo">
         <param name="ios-package" value="TetherInfo" />
