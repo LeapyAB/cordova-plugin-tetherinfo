@@ -19,7 +19,7 @@ import SystemConfiguration
       )
     }
 
-    self.commandDelegate.sendPluginResult(
+    self.commandDelegate.send(
       pluginResult,
       callbackId: command.callbackId
     )
@@ -48,7 +48,7 @@ import SystemConfiguration
       )
     }
 
-    self.commandDelegate.sendPluginResult(
+    self.commandDelegate.send(
       pluginResult,
       callbackId: command.callbackId
     )
