@@ -31,22 +31,11 @@ import SystemConfiguration
       status: CDVCommandStatus_ERROR
     )
 
-    //SCDynamicStoreRef sc = SCDynamicStoreCreate(NULL, CFSTR("com.apple.wirelessmodemsettings.MISManager"), NULL, NULL);
-    //NSDictionary* info = (__bridge_transfer NSDictionary*)SCDynamicStoreCopyValue(sc, CFSTR("com.apple.MobileInternetSharing"));
-    //CFRelease(sc);
-
-    let sc = SCDynamicStoreCreate(nil, "com.apple.wirelessmodemsettings.MISManager" as CFString, nil, nil)
-    let info = SCDynamicStoreCopyValue(sc, "com.apple.MobileInternetSharing" as CFString)
-    //CFRelease(sc)
-
-    //let msg = info
-
-    if (info != nil) {
-      pluginResult = CDVPluginResult(
-        status: CDVCommandStatus_OK,
-        messageAs: info!["Hosts.Type.USB-Ethernet"] as! UInt
-      )
-    }
+    // dont do anything
+    pluginResult = CDVPluginResult(
+      status: CDVCommandStatus_OK,
+      messageAs: "false"
+    )
 
     self.commandDelegate.send(
       pluginResult,
