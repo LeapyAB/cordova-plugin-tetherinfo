@@ -1,5 +1,5 @@
-import SystemConfiguration
-import MobileDevice
+import Foundation
+import SystemConfiguration.CaptiveNetwork
 
 @objc(TetherInfo) class TetherInfo : CDVPlugin {
 
@@ -31,10 +31,23 @@ import MobileDevice
       status: CDVCommandStatus_ERROR
     )
 
+    var currentSSID = "false"
+    if let interfaces:CFArray! = CNCopySupportedInterfaces() {
+      for i in 0..<CFArrayGetCount(interfaces){
+        let interfaceName: UnsafePointer<Void> = CFArrayGetValueAtIndex(interfaces, i)
+        let rec = unsafeBitCast(interfaceName, AnyObject.self)
+        let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)")
+        if unsafeInterfaceData != nil {
+          let interfaceData = unsafeInterfaceData! as Dictionary!
+          currentSSID = interfaceData["SSID"] as! String
+        }
+      }
+    }
+
     // dont do anything
     pluginResult = CDVPluginResult(
       status: CDVCommandStatus_OK,
-      messageAs: "true"
+      messageAs: currentSSID
     )
 
     self.commandDelegate.send(
