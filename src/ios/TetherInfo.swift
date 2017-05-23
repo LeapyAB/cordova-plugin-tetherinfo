@@ -1,4 +1,5 @@
 import SystemConfiguration
+import MobileDevice
 
 @objc(TetherInfo) class TetherInfo : CDVPlugin {
 
