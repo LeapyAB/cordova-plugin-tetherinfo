@@ -1,5 +1,5 @@
 import SystemConfiguration
-
+import MobileDevice
 
 @objc(TetherInfo) class TetherInfo : CDVPlugin {
 
@@ -34,7 +34,7 @@ import SystemConfiguration
     // dont do anything
     pluginResult = CDVPluginResult(
       status: CDVCommandStatus_OK,
-      messageAs: "false"
+      messageAs: "true"
     )
 
     self.commandDelegate.send(
