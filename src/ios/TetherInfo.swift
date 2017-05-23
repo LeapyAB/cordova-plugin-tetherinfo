@@ -31,21 +31,24 @@ import SystemConfiguration.CaptiveNetwork
       status: CDVCommandStatus_ERROR
     )
 
-    var currentSSID = "false"
+    var currentSSID = ""
     let interfaces:CFArray! = CNCopySupportedInterfaces()
     if interfaces != nil {
-      for i in 0..<CFArrayGetCount(interfaces){
+      for i in 0..<CFArrayGetCount(interfaces) {
         let interfaceName: UnsafeRawPointer = CFArrayGetValueAtIndex(interfaces, i)
         let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
         let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString)
+        currentSSID = currentSSID + rec
+
         if unsafeInterfaceData != nil {
           let interfaceData = unsafeInterfaceData! as NSDictionary
-          currentSSID = interfaceData["SSID"] as! String
+          //currentSSID = interfaceData["SSID"] as! String
         }
       }
     }
 
-    // dont do anything
+
+
     pluginResult = CDVPluginResult(
       status: CDVCommandStatus_OK,
       messageAs: currentSSID
