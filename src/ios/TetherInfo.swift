@@ -38,7 +38,7 @@ import SystemConfiguration.CaptiveNetwork
         let interfaceName: UnsafeRawPointer = CFArrayGetValueAtIndex(interfaces, i)
         let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
         let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString)
-        currentSSID = currentSSID + rec
+        currentSSID = currentSSID + rec as! String
 
         if unsafeInterfaceData != nil {
           let interfaceData = unsafeInterfaceData! as NSDictionary
