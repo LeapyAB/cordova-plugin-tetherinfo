@@ -32,7 +32,8 @@ import SystemConfiguration.CaptiveNetwork
     )
 
     var currentSSID = "false"
-    if let interfaces:CFArray! = CNCopySupportedInterfaces() {
+    let interfaces:CFArray! = CNCopySupportedInterfaces() 
+    if interfaces {
       for i in 0..<CFArrayGetCount(interfaces){
         let interfaceName: UnsafePointer<Void> = CFArrayGetValueAtIndex(interfaces, i)
         let rec = unsafeBitCast(interfaceName, AnyObject.self)
