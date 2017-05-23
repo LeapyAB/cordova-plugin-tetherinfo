@@ -40,7 +40,7 @@ import SystemConfiguration.CaptiveNetwork
         let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString)
         if unsafeInterfaceData != nil {
           let interfaceData = unsafeInterfaceData! as NSDictionary
-          currentSSID = interfaceData["SSID"] as? String
+          currentSSID = interfaceData["SSID"] as! String
         }
       }
     }
