@@ -32,7 +32,7 @@ import SystemConfiguration.CaptiveNetwork
     )
 
     var currentSSID = "false"
-    let interfaces:CFArray! = CNCopySupportedInterfaces()
+    /*let interfaces:CFArray! = CNCopySupportedInterfaces()
     if interfaces != nil {
       for i in 0..<CFArrayGetCount(interfaces){
         let interfaceName: UnsafeRawPointer = CFArrayGetValueAtIndex(interfaces, i)
@@ -43,7 +43,7 @@ import SystemConfiguration.CaptiveNetwork
           currentSSID = interfaceData["SSID"] as! String
         }
       }
-    }
+    }*/
 
     // dont do anything
     pluginResult = CDVPluginResult(
