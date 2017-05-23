@@ -54,7 +54,7 @@ import SystemConfiguration
 
     pluginResult = CDVPluginResult(
       status: CDVCommandStatus_OK,
-      messageAs: info
+      messageAs: "false"
     )
 
     self.commandDelegate.send(
