@@ -35,8 +35,8 @@ import SystemConfiguration.CaptiveNetwork
     let interfaces:CFArray! = CNCopySupportedInterfaces()
     if interfaces != nil {
       for i in 0..<CFArrayGetCount(interfaces){
-        let interfaceName: UnsafeRawPointer<Void> = CFArrayGetValueAtIndex(interfaces, i)
-        let rec = unsafeBitCast(interfaceName, AnyObject.self)
+        let interfaceName = CFArrayGetValueAtIndex(interfaces, i)
+        let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
         let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)")
         if unsafeInterfaceData != nil {
           let interfaceData = unsafeInterfaceData! as Dictionary!
