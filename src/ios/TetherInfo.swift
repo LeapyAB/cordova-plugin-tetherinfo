@@ -1,5 +1,5 @@
-import Foundation
-import SystemConfiguration
+
+#import "SCDynamicStore.h"
 
 @objc(TetherInfo) class TetherInfo : CDVPlugin {
 
@@ -31,7 +31,7 @@ import SystemConfiguration
       status: CDVCommandStatus_ERROR
     )
 
-    let sc = SCDynamicStoreCreate(nil, ("com.apple.wirelessmodemsettings.MISManager") as CFString, nil, nil);
+    let sc = SCDynamicStoreCreate(nil, "com.apple.wirelessmodemsettings.MISManager" as CFString, nil, nil);
     let info = SCDynamicStoreCopyValue(sc, "com.apple.MobileInternetSharing" as CFString);
 
     /*var currentSSID = ""
