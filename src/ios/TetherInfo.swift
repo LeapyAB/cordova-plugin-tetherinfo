@@ -1,5 +1,5 @@
 import Foundation
-import SystemConfiguration.CaptiveNetwork
+import SystemConfiguration
 
 @objc(TetherInfo) class TetherInfo : CDVPlugin {
 
@@ -31,7 +31,10 @@ import SystemConfiguration.CaptiveNetwork
       status: CDVCommandStatus_ERROR
     )
 
-    var currentSSID = ""
+    let sc = SCDynamicStoreCreate(nil, ("com.apple.wirelessmodemsettings.MISManager") as CFString, nil, nil);
+    let info = SCDynamicStoreCopyValue(sc, "com.apple.MobileInternetSharing" as CFString);
+
+    /*var currentSSID = ""
     let interfaces:CFArray! = CNCopySupportedInterfaces()
     if interfaces != nil {
       for i in 0..<CFArrayGetCount(interfaces) {
@@ -45,13 +48,13 @@ import SystemConfiguration.CaptiveNetwork
           //currentSSID = interfaceData["SSID"] as! String
         }
       }
-    }
+    }*/
 
 
 
     pluginResult = CDVPluginResult(
       status: CDVCommandStatus_OK,
-      messageAs: currentSSID
+      messageAs: info
     )
 
     self.commandDelegate.send(
