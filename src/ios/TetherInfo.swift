@@ -1,5 +1,5 @@
 
-#import "SCDynamicStore.h"
+import SystemConfiguration
 
 @objc(TetherInfo) class TetherInfo : CDVPlugin {
 
