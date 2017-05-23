@@ -31,8 +31,8 @@ import SystemConfiguration
       status: CDVCommandStatus_ERROR
     )
 
-    let sc = SCDynamicStoreCreate(nil, "com.apple.wirelessmodemsettings.MISManager" as CFString, nil, nil);
-    let info = SCDynamicStoreCopyValue(sc, "com.apple.MobileInternetSharing" as CFString);
+    //let sc = SCDynamicStoreCreate(nil, "com.apple.wirelessmodemsettings.MISManager" as CFString, nil, nil);
+    //let info = SCDynamicStoreCopyValue(sc, "com.apple.MobileInternetSharing" as CFString);
 
     /*var currentSSID = ""
     let interfaces:CFArray! = CNCopySupportedInterfaces()
