@@ -36,8 +36,8 @@ import SystemConfiguration.CaptiveNetwork
     if interfaces != nil {
       for i in 0..<CFArrayGetCount(interfaces){
         let interfaceName = CFArrayGetValueAtIndex(interfaces, i)
-        let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
-        let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)")
+        let rec = unsafeBitCast(interfaceName, to: AnyObject.self
+        let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString)
         if unsafeInterfaceData != nil {
           let interfaceData = unsafeInterfaceData! as Dictionary!
           currentSSID = interfaceData["SSID"] as! String
